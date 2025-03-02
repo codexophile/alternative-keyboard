@@ -2,8 +2,8 @@
 #SingleInstance Force
 SetCapsLockState "AlwaysOff"
 InstallKeybdHook()
-#Include #lib\Functions.ahk
-TraySetIcon '#stuff/altK.ico'
+#Include ..\#lib\Functions.ahk
+TraySetIcon '..\#stuff/altK.ico'
 
 ; Basic state tracking
 EntCaps := false
