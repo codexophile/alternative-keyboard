@@ -50,7 +50,7 @@ Enter & CapsLock:: {
 ;* Hotkeys with CapsLock
 ; MARK: Caps
 
-#HotIf AllPressed('CapsLock') AND AllNotPressed('Ctrl', 'Space', 'r', 'e')
+#HotIf AllPressedPhysical('CapsLock') AND AllNotPressedPhysical('Ctrl', 'Space', 'r', 'e')
 
 f:: return
 p:: Send "{Escape}"
@@ -59,7 +59,7 @@ m:: Send "{Home}"
 ග:: Send "{End}"
 `;:: Send "^+p"
 
-#HotIf AllPressed('CapsLock') AND AllNotPressed('Ctrl', 'Space', 'r', 'e', 'f')
+#HotIf AllPressedPhysical('CapsLock') AND AllNotPressedPhysical('Space', 'r', 'e', 'f') AND AllNotPressed('Ctrl')
 
 u::BackSpace
 i::Up
@@ -68,7 +68,7 @@ j::Left
 k::Down
 l::Right
 
-#HotIf AllPressed('CapsLock', 'f') AND AllNotPressed('Ctrl', 'Space', 'r', 'e')
+#HotIf AllPressedPhysical('CapsLock', 'f') AND AllNotPressedPhysical('Ctrl', 'Space', 'r', 'e')
 ; MARK: Caps + f
 
 u:: {
@@ -107,7 +107,7 @@ m:: SendText "{"
 RShift:: Send '|'
 
 ; MARK: Caps+r (numbers)
-#HotIf AllPressed('CapsLock', 'r') AND AllNotPressed('Space')
+#HotIf AllPressedPhysical('CapsLock', 'r') AND AllNotPressedPhysical('Space')
 r:: return
 
 y:: Send "1"
@@ -123,7 +123,7 @@ l:: Send "9"
 ත:: Send "0"
 
 ; MARK: Caps + g
-#HotIf AllPressed('CapsLock', 'g')
+#HotIf AllPressedPhysical('CapsLock', 'g')
 g:: return
 j:: Send "!\"
 
@@ -146,7 +146,7 @@ CapsLock & Enter:: {
 }
 
 ; MARK: Ent+j (Deletions)
-#HotIf AllPressed('Enter', 'j')
+#HotIf AllPressedPhysical('Enter', 'j')
 j:: return
 w:: SendShortcutKeys('^!j', '+{Home 2}{Delete}')      ; delete up to start of line
 e:: {
@@ -159,7 +159,7 @@ d:: SendShortcutKeys('^+k', '{End}+{Home 2}{Delete}') ; delete the entire line a
 f:: return
 
 ; MARK: Ent
-#HotIf GetKeyState('Enter', 'P') and AllNotPressed("'", 'j')
+#HotIf GetKeyState('Enter', 'P') and AllNotPressedPhysical("'", 'j')
 s:: Send '+{Left}'
 f:: Send '+{Right}'
 d:: Send '+{Down}'
@@ -169,7 +169,7 @@ v:: Send '+{End}'
 #HotIf
 
 ; MARK: Ent+Quotes (Move)
-#HotIf AllPressed('Enter', "'") and AllNotPressed('j')
+#HotIf AllPressedPhysical('Enter', "'") and AllNotPressedPhysical('j')
 ':: return
 
 e:: SendShortcutKeys("!{Up}")     ; move line up
@@ -183,7 +183,7 @@ g:: SendShortcutKeys('!+{down}')  ; duplicate line (down)
 ;!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ; CapsLock + Space + Key combinations
-#HotIf AllPressed('CapsLock', 'Space') AND AllNotPressed('e')
+#HotIf AllPressedPhysical('CapsLock', 'Space') AND AllNotPressedPhysical('e')
 
 j:: Send "{Ctrl Down}"
 h:: Send "{Alt Down}"
